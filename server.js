@@ -1,7 +1,7 @@
-let express = require('express'),
-    path = require('path'),
-    port = 3000,
-    app = express()
+const express = require('express'),
+      path = require('path'),
+      port = 3000,
+      app = express()
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'src')))
 app.get('/',(req,res) => {
