@@ -1,0 +1,17 @@
+{
+  "name": "web215_mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel react --out-dir src --presets @babel/preset-react"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
