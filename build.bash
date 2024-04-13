@@ -1,3 +1,3 @@
 cd client
-npm run build
+npm i && npm run build
 cd ..
