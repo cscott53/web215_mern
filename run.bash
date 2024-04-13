@@ -1,4 +1,3 @@
-clear
 cd server
-node api.js && node server.js
+npm i && node api.js && node server.js
 cd ..
