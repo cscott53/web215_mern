@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb"),
+const { MongoClient, ServerApiVersion } = require("mongodb"),
       uri = 'mongodb+srv://cscott53:Cpcc-2024!@naming-contests.ac30zfz.mongodb.net/ ',
       db_name = 'test'
 let connectedClient
