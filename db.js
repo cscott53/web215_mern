@@ -1,14 +1,19 @@
 const { MongoClient } = require("mongodb"),
-      uri = 'mongodb://localhost:27017',
+      uri = 'mongodb+srv://cscott53:Cpcc-2024!@naming-contests.ac30zfz.mongodb.net/ ',
       db_name = 'test'
-console.log(MongoClient)
 let connectedClient
 async function connectClient() {
     if(connectedClient)return connectedClient.db(db_name)
-    let client = new MongoClient(uri)
+    let client = new MongoClient(uri, {
+        serverApi: {
+            version: ServerApiVersion.v1,
+            strict: true,
+            deprecationErrors: true,
+        }
+    })
     await client.connect()
     await client.db(db_name).command({ping:1})
-    console.log('Connected to Mongo DB')
+    console.info('Connected to Mongo DB')
     connectedClient = client
     return connectedClient.db(db_name)
 }
