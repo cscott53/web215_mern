@@ -7,6 +7,26 @@ body {
   font-family: Helvetica, sans-serif;
   color: tan;
 }
+a,a:visited {
+    color: #0aa;
+}
+main {
+    margin: auto;
+    width: 60vw;
+    text-align: left;
+    min-height: 67vh;
+}
+footer .links {
+    width: 120px;
+}
+.links {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #444;
+    height: 20px;
+    width: 100px;
+    background-color: #876;
+}
 .contestPreview {
   text-align: left;
   width: 50vw;
