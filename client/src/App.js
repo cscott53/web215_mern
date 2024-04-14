@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
+import Footer from './Footer'
 import ContestList from './ContestList'
 import Contest from './Contest'
 function App() {
@@ -75,6 +76,7 @@ function App() {
         e.preventDefault()
         showForm(true)
       }}>Add new contest</a>}
+      <Footer/>
     </div>
   )
 }
