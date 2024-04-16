@@ -12,10 +12,13 @@ function App() {
         category = useRef(),
         description = useRef()
   useEffect(() => {
-    fetch('http://localhost:3000/api/contests')
-    .then(res=>res.text())
+    fetch(`https://${window.location.host}/api/contests`)
+    .then(res=>{
+      if (!res.ok) throw new Error('An error occured with the response') //in case it couldn't fetch the data
+      return response.json()
+    })
     .then(obj=>{
-      setData(JSON.parse(obj))
+      setData(obj)
     })
     .catch(console.log)
   }, [id])
