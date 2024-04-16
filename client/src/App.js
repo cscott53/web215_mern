@@ -60,7 +60,7 @@ function App() {
           <br/>
           <button onClick={e=>{
             e.preventDefault()
-            fetch('http://localhost:3000/api/contests',{
+            fetch(`https://${window.location.host}/api/contests`,{
               method: 'POST',
               headers: {
                 'Content-Type':'application/json',

@@ -4,7 +4,7 @@ export default function Contest({id,setPage}) {
     const [contest,setContest] = useState({}),
           input = useRef()
     useEffect(() => {
-        fetch(`http://localhost:3000/api/contest/${id}`).then(res=>res.json()).then(setContest).catch(console.log)
+        fetch(`https://${window.location.host}/api/contest/${id}`).then(res=>res.json()).then(setContest).catch(console.log)
     }, [id])
     setTimeout(()=>window.contest=contest,200)
     return (
@@ -30,7 +30,7 @@ export default function Contest({id,setPage}) {
                     <button id='submit' onClick={e=>{
                         e.preventDefault()
                         let {value} = input.current
-                        fetch(`http://localhost:3000/api/contest/${id}`,{
+                        fetch(`https://${window.location.host}/api/contest/${id}`,{
                             method: 'POST',
                             headers: {
                                 'Content-Type':'application/json',
