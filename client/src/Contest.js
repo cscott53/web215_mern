@@ -9,7 +9,8 @@ export default function Contest({id,setPage}) {
     setTimeout(()=>window.contest=contest,200)
     return (
         <>
-            <Header message={contest.contestName}/>
+            <Header/>
+            <h2 className='header'>{contest.contestName}</h2>
             <div className='contestDetail'>
                 <h2 className='title'>Contest description</h2>
                 <div className='description'>{contest.description}</div>
