@@ -1,6 +1,6 @@
 body {
   background:linear-gradient(to right,#f70 0vw,#f70 10vw,#876 10vw,#876 90vw,#f70 90vw,#f70 100vw);
-  min-neight: 100vh;
+  min-neight: 100vh !important;
 }
 .App {
   text-align: center;
