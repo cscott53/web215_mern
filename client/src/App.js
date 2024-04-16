@@ -15,7 +15,7 @@ function App() {
     fetch(`https://${window.location.host}/api/contests`)
     .then(res=>{
       if (!res.ok) throw new Error('An error occured with the response') //in case it couldn't fetch the data
-      return response.json()
+      return res.json()
     })
     .then(obj=>{
       setData(obj)
