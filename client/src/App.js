@@ -81,6 +81,11 @@ function App() {
         showForm(true)
       }}>Add new contest</a>}
       <Footer/>
+      {['',setTimeout(()=>{
+        let links = Array.from(document.querySelectorAll('.links'))
+        links?.slice(0,links.length-1)?.forEach(e=>e.outerHTML+=' ')
+        // just puts a whitespace character between each <span class="links"> element
+      },250)][0]/*just returns an empty string*/}
     </div>
   )
 }
