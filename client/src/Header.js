@@ -8,7 +8,7 @@ export default function Header() {
             <span class="links header"><a href="https://cscott53.github.io/web215/contract.html">Contract</a></span>
             <span class="links header"><a href="https://cscott53.github.io/web215/brand.html">Brand</a></span>
             <span class="links header"><a href="https://cscott53.github.io/web215/introduction_form.html">Intro form</a></span>
-            <span class="links header"><a href="https://web215-m10-cookies.onrender.com">Intro form 2</a></span>
+            {/* <span class="links header"><a href="https://web215-m10-cookies.onrender.com">Intro form 2</a></span> */} {/* haven't finished this one yet, will un-comment when completed */}
             <span class="links header"><a href="https://web215-mern.onrender.com">MERN stack</a></span>
         </header>
     )
