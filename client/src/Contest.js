@@ -19,13 +19,13 @@ export default function Contest({id,setPage}) {
                     {contest.names?.length >= 1 ? (
                         <div className='list'>
                             {contest.names.map(({name,id})=>(
-                                <div key={id} className='item'>
+                                <>
                                     <span className='name'>{typeof name == 'string' ? name : JSON.stringify(name)}</span>
                                     <span className='buttons'>
                                         <button className='update' id={`update-${id}`}>✏️</button>
                                         <button className='delete' id={`delete-${id}`}>🗑️</button>
                                     </span>
-                                </div>
+                                </>
                             ))}
                         </div>
                     ) : 'No names proposed yet'}

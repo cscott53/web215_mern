@@ -32,14 +32,16 @@ footer .links {
   width: 100px;
   background-color: #876;
 }
+.list {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
 .name,.buttons{display:inline-block;}
 .name {
   text-align: right;
+  grid-column: 1;
 }
-.buttons {
-  position: relative;
-  left: 2em;
-}
+.buttons{grid-column: 3;}
 /* .update {background-image: url('/edit_button.png');}
 .delete {background-image: url('/delete_button.png');} */
 .update, .delete {
