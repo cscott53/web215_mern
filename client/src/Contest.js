@@ -67,10 +67,3 @@ export default function Contest({id,setPage}) {
         </>
     )
 }
-/*
-(async()=>{
-    let db = await connectClient()
-    await db.collection('contests').findOneAndUpdate({id:'free-programming-books'},{$set:{names:[]}})
-    console.log(await db.collection('contests').findOne({id:'free-programming-books'}))
-})()
-*/
