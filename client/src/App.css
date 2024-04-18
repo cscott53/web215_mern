@@ -7,13 +7,13 @@ body {
   color: tan;
 }
 a,a:visited {
-    color: #0aa;
+  color: #0aa;
 }
 main {
-    margin: auto;
-    width: 60vw;
-    text-align: left;
-    min-height: 67vh;
+  margin: auto;
+  width: 60vw;
+  text-align: left;
+  min-height: 67vh;
 }
 footer {
   position: absolute;
@@ -22,15 +22,23 @@ footer {
   transform: translateX(-50%);
 }
 footer .links {
-    width: 120px;
+  width: 120px;
 }
 .links {
-    display: inline-block;
-    border-radius: 5px;
-    border: 1px solid #444;
-    height: 20px;
-    width: 100px;
-    background-color: #876;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #444;
+  height: 20px;
+  width: 100px;
+  background-color: #876;
+}
+.upsate {background-image: url('/edit_button.png');}
+.delete {background-image: url('/delete_button.png');}
+.update, .delete {
+  background-size: contain;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
 }
 .contestPreview {
   text-align: left;

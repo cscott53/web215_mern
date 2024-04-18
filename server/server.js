@@ -6,6 +6,7 @@ const express = require("express"),
 app.use('/api',router)
 app.use(express.static(path.join(__dirname,'../client/build')))
 app.get(['/','/contest/:contestid'],(req,res)=>res.sendFile(path.join(__dirname,'../client/build','index.html')))
-app.get('/validate_html.png',(req,res)=>res.sendFile(path.join(__dirname,'../client/public/validate_html.png')))
-app.get('/validate_css.png',(req,res)=>res.sendFile(path.join(__dirname,'../client/public/validate_css.png')))
+for (var image of ['validate_html.png','validate_css.png','edit_button.png','delete_button.png']) {
+    app.get('/'+image,(req,res)=>res.sendFile(path.join(__dirname,'../client/public/'+image)))
+}
 app.listen(port,()=>console.log(`Server running at port ${port}`))
