@@ -32,13 +32,24 @@ footer .links {
   width: 100px;
   background-color: #876;
 }
+.name,.buttons{display:inline-block;}
+.name {
+  text-align: right;
+}
+.buttons {
+  position: relative;
+  left: 2em;
+}
 /* .update {background-image: url('/edit_button.png');}
 .delete {background-image: url('/delete_button.png');} */
 .update, .delete {
   background-color: white;
+  padding: 0;
+  text-align: center;
+  border: none;
   background-size: contain;
-  width: 1.2em;
-  height: 1.2em;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
 }
 .contestPreview {

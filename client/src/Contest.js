@@ -20,9 +20,11 @@ export default function Contest({id,setPage}) {
                         <div className='list'>
                             {contest.names.map(({name,id})=>(
                                 <div key={id} className='item'>
-                                    {typeof name == 'string' ? name : JSON.stringify(name)}
-                                    <button className='update' id={`update-${id}`}>✏️</button>
-                                    <button className='delete' id={`delete-${id}`}>🗑️</button>
+                                    <span className='name'>{typeof name == 'string' ? name : JSON.stringify(name)}</span>
+                                    <span className='buttons'>
+                                        <button className='update' id={`update-${id}`}>✏️</button>
+                                        <button className='delete' id={`delete-${id}`}>🗑️</button>
+                                    </span>
                                 </div>
                             ))}
                         </div>
