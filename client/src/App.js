@@ -59,7 +59,7 @@ function App() {
           <br/>
           <textarea placeholder='Contest description' ref={description}/>
           <br/>
-          <button onClick={e=>{
+          <button className='submit' onClick={e=>{
             e.preventDefault()
             fetch(`https://${window.location.host}/api/contests`,{
               method: 'POST',

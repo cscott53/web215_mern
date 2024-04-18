@@ -21,8 +21,8 @@ export default function Contest({id,setPage}) {
                             {contest.names.map(({name,id})=>(
                                 <div key={id} className='item'>
                                     {typeof name == 'string' ? name : JSON.stringify(name)}
-                                    <button class='update' id={`update-${id}`}></button>
-                                    <button class='delete' id={`delete-${id}`}></button>
+                                    <button className='update' id={`update-${id}`}>✏️</button>
+                                    <button className='delete' id={`delete-${id}`}>🗑️</button>
                                 </div>
                             ))}
                         </div>
@@ -32,7 +32,7 @@ export default function Contest({id,setPage}) {
                 <form>
                     <input type='text' ref={input} id='newName' placeholder='New name here...'/>
                     <br/>
-                    <button id='submit' onClick={e=>{
+                    <button id='submit' className='submit' onClick={e=>{
                         e.preventDefault()
                         let {value} = input.current
                         fetch(`https://${window.location.host}/api/contest/${id}`,{

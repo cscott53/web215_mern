@@ -35,6 +35,7 @@ footer .links {
 /* .update {background-image: url('/edit_button.png');}
 .delete {background-image: url('/delete_button.png');} */
 .update, .delete {
+  background-color: white;
   background-size: contain;
   width: 1.2em;
   height: 1.2em;
@@ -63,7 +64,7 @@ hr {
   width: 50%;
   margin: auto;
 }
-button {
+.submit {
   border: none;
   height: 22px;
   background: black;
