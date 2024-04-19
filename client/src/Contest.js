@@ -27,7 +27,11 @@ export default function Contest({id,setPage}) {
                                             let newName = prompt('What would you like to change the name to?',name)
                                             if (newName) { //makes sure the user entered something
                                                 let updatedNames = [...contest.names]
-                                                updatedNames[index] = newName
+                                                updatedNames[index] = {
+                                                    ...updatedNames,
+                                                    name: newName,
+                                                    id: nameId
+                                                }
                                                 fetch(`https://${window.location.host}/api/contest/${id}`,{
                                                     method: 'PUT',
                                                     headers: {
