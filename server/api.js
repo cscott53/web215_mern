@@ -59,7 +59,7 @@ router.put('/contest/:contestId',async({params,body},res)=>{
                 {$set:{'names.$.name':newName}},
                 {returnDocument: 'after'}
             )
-            res.send(data.value)
+            res.send(data?.value)
     } catch (error) {
         console.error(`Error updating name:\n${error}`)
         res.status(500).send('Internal server error')

@@ -35,7 +35,7 @@ export default function Contest({id,setPage}) {
                                                         source: 'frontend'
                                                     },
                                                     body: JSON.stringify({id,newName})
-                                                }).then(res=>res.ok?setContest(prevState=>({...prevState,aames: updatedNames})):console.error('Failed to update name'))
+                                                }).then(res=>res.ok?setContest(prevState=>({...prevState,names: updatedNames})):console.error('Failed to update name'))
                                                 .catch(console.error)
                                             }
                                         }}>✏️</button>
