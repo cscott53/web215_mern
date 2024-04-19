@@ -28,6 +28,7 @@ export default function Contest({id,setPage}) {
                                             if (newName) { //makes sure the user entered something
                                                 let updatedNames = [...contest.names]
                                                 updatedNames[index] = newName
+                                                console.log({nameId})
                                                 fetch(`https://${window.location.host}/api/contest/${id}`,{
                                                     method: 'PUT',
                                                     headers: {
