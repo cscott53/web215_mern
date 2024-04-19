@@ -49,7 +49,7 @@ router.post('/contests', async({body},res)=>{
             res2.send(JSON.stringify(data))
         })
 })
-router.put('/contest/:contestId',async({params,body})=>{
+router.put('/contest/:contestId',async({params,body},res)=>{
     try {
         let db = await connectClient(),
             {contestId} = params,
