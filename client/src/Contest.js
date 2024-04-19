@@ -35,7 +35,12 @@ export default function Contest({id,setPage}) {
                                                         source: 'frontend'
                                                     },
                                                     body: JSON.stringify({nameId,newName})
-                                                }).then(res=>res.ok?setContest(prevState=>({...prevState,names: updatedNames})):console.error('Failed to update name'))
+                                                }).then(res=>{
+                                                    if (res.ok){
+                                                        console.log(JSON.stringify(contest,null,4))
+                                                        setContest(prevState=>({...prevState,names: updatedNames}))
+                                                        console.log(JSON.stringify(contest,null,4))
+                                                    } else console.error('Failed to update name')})
                                                 .catch(console.error)
                                             }
                                         }}>✏️</button>
