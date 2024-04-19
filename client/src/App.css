@@ -34,7 +34,7 @@ footer .links {
 }
 .list {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 2em auto;
 }
 .name,.buttons{display:inline-block;}
 .name {
