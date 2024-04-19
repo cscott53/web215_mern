@@ -41,7 +41,8 @@ footer .links {
   text-align: right;
   grid-column: 1;
 }
-.buttons{
+.buttons button:first-of-type{margin-right: 1em;}
+.buttons {
   text-align: left;
   grid-column: 3;
 }

@@ -18,12 +18,13 @@ export default function Contest({id,setPage}) {
                 <div className='names'>
                     {contest.names?.length >= 1 ? (
                         <div className='list'>
-                            {contest.names.map(({name,id})=>(
+                            {contest.names.map(({name,id},index)=>(
                                 <>
                                     <span className='name'>{typeof name == 'string' ? name : JSON.stringify(name)}</span>
                                     <span className='buttons'>
-                                        <button className='update' id={`update-${id}`}>✏️</button>
-                                        <button className='delete' id={`delete-${id}`}>🗑️</button>
+                                        {/* added _${index} to create unique IDs for the elements */}
+                                        <button className='update' id={`update-${id}_${index}`}>✏️</button>
+                                        <button className='delete' id={`delete-${id}_${index}`}>🗑️</button>
                                     </span>
                                 </>
                             ))}
