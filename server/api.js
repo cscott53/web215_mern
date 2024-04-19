@@ -44,4 +44,20 @@ router.post('/contests', async({body},res)=>{
             res2.send(JSON.stringify(data))
         })
 })
+router.put('/contest/:contestIdd',async({params,body})=>{
+    try {
+        let db = await connectClient(),
+            {contestId} = params,
+            {newName,id} = body,
+            data = await db.collection('contests').findOneAndUpdate(
+                {id:contestId,'names.id':id},
+                {$set:{'names.$.name':newName}},
+                {returnDocument: 'after'}
+            )
+            res.send(data.value)
+    } catch (error) {
+        console.error(`Error updating name:\n${error}`)
+        res.status(500).send('Internal server error')
+    }
+})
 module.exports = router

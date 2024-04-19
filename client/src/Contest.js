@@ -18,13 +18,28 @@ export default function Contest({id,setPage}) {
                 <div className='names'>
                     {contest.names?.length >= 1 ? (
                         <div className='list'>
-                            {contest.names.map(({name,id},index)=>(
+                            {contest.names.map(({name,nameId},index)=>(
                                 <>
                                     <span className='name'>{typeof name == 'string' ? name : JSON.stringify(name)}</span>
                                     <span className='buttons'>
                                         {/* added _${index} to create unique IDs for the elements */}
-                                        <button className='update' id={`update-${id}_${index}`}>✏️</button>
-                                        <button className='delete' id={`delete-${id}_${index}`}>🗑️</button>
+                                        <button className='update' id={`update-${nameId}_${index}`} onClick={()=>{
+                                            let newName = prompt('What would you like to change the name to?')
+                                            if (newName) { //makes sure the user entered something
+                                                let updatedNames = [...contest.names]
+                                                updatedNames[index] = newName
+                                                fetch(`https://${window.location.host}/api/contest/${id}`,{
+                                                    method: 'PUT',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        source: 'frontend'
+                                                    },
+                                                    body: JSON.stringify({id,newName})
+                                                }).then(res=>res.ok?setContest(prevState=>({...prevState,aames: updatedNames})):console.error('Failed to update name'))
+                                                .catch(console.error)
+                                            }
+                                        }}>✏️</button>
+                                        <button className='delete' id={`delete-${nameId}_${index}`}>🗑️</button>
                                     </span>
                                 </>
                             ))}
