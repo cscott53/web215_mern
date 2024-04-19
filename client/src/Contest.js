@@ -18,7 +18,7 @@ export default function Contest({id,setPage}) {
                 <div className='names'>
                     {contest.names?.length >= 1 ? (
                         <div className='list'>
-                            {contest.names.map(({name,nameId},index)=>(
+                            {contest.names.map(({name,id:nameId},index)=>(
                                 <>
                                     <span className='name'>{typeof name == 'string' ? name : JSON.stringify(name)}</span>
                                     <span className='buttons'>
@@ -28,7 +28,6 @@ export default function Contest({id,setPage}) {
                                             if (newName) { //makes sure the user entered something
                                                 let updatedNames = [...contest.names]
                                                 updatedNames[index] = newName
-                                                console.log({nameId})
                                                 fetch(`https://${window.location.host}/api/contest/${id}`,{
                                                     method: 'PUT',
                                                     headers: {
@@ -68,8 +67,8 @@ export default function Contest({id,setPage}) {
                                     updatedContest = {...contest}
                                 names.push({name:value})
                                 updatedContest.names = names
-                                console.log(contest)
-                                console.log(updatedContest)
+                                // console.log(contest)
+                                // console.log(updatedContest)
                                 setContest(updatedContest)
                                 return text
                             } else {
