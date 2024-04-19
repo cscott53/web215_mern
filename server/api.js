@@ -15,15 +15,20 @@ router.get('/contest/:contestId',async({params},res)=>{
     res.send(data)
 })
 router.post('/contest/:contestId',async({params,body},res)=>{
-    let db = await connectClient(),
-        data = await db.collection('contests').findOneAndUpdate({id:params.contestId},{
-            $addToSet: {names: {
-                id:body.value.toLowerCase().replace(/\s/g,'-'),
-                name:body.value,
-                timestamp:new Date
-            }}
-        },{returnDocument:'after'})
-    res.send(data.value)
+    try {
+        let db = await connectClient(),
+            data = await db.collection('contests').findOneAndUpdate({id:params.contestId},{
+                $addToSet: {names: {
+                    id:body.value.toLowerCase().replace(/\s/g,'-'),
+                    name:body.value,
+                    timestamp:new Date
+                }}
+            },{returnDocument:'after'})
+        res.send(data.value)
+    } catch (error) {
+        console.error(`Error adding name:\n${error}`)
+        res.status(500).send('Internal server error')
+    }
 })
 router.post('/contests', async({body},res)=>{
     let {name,category,description} = body,
