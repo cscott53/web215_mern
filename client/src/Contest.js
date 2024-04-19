@@ -24,7 +24,7 @@ export default function Contest({id,setPage}) {
                                     <span className='buttons'>
                                         {/* added _${index} to create unique IDs for the elements */}
                                         <button className='update' id={`update-${nameId}_${index}`} onClick={()=>{
-                                            let newName = prompt('What would you like to change the name to?')
+                                            let newName = prompt('What would you like to change the name to?',name)
                                             if (newName) { //makes sure the user entered something
                                                 let updatedNames = [...contest.names]
                                                 updatedNames[index] = newName
@@ -34,7 +34,7 @@ export default function Contest({id,setPage}) {
                                                         'Content-Type': 'application/json',
                                                         source: 'frontend'
                                                     },
-                                                    body: JSON.stringify({id,newName})
+                                                    body: JSON.stringify({nameId,newName})
                                                 }).then(res=>res.ok?setContest(prevState=>({...prevState,names: updatedNames})):console.error('Failed to update name'))
                                                 .catch(console.error)
                                             }

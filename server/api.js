@@ -53,7 +53,7 @@ router.put('/contest/:contestId',async({params,body},res)=>{
     try {
         let db = await connectClient(),
             {contestId} = params,
-            {newName,id} = body
+            {newName,nameId:id} = body
         console.log({contestId,newName,id})
         let data = await db.collection('contests').findOneAndUpdate(
                 {id:contestId,'names.id':id},
