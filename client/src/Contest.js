@@ -48,6 +48,7 @@ export default function Contest({id,setPage}) {
                                             }
                                         }}>✏️</button>
                                         <button className='delete' id={`delete-${nameId}_${index}`} onClick={()=>{
+                                            /* eslint-disable no-restricted-globals */
                                             if (confirm('Are you sure?')) {
                                                 let updatedNames = [...contest.names]
                                                 updatedNames.splice(index,1)
@@ -62,6 +63,7 @@ export default function Contest({id,setPage}) {
                                                     else console.error('Failed to delete name')
                                                 }).catch(console.error)
                                             }
+                                            /* eslint-enable no-restricted-globals */
                                         }}>🗑️</button>
                                     </span>
                                 </>
