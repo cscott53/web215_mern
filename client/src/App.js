@@ -45,7 +45,7 @@ function App() {
           setId(contestId)
         }} />
       case 'contest':
-        return <Contest id={id} setPage={setPage}/>
+        return <Contest url={url.replace('contests',`contest/${id}`)} id={id} setPage={setPage}/>
     }
   }
   return (
