@@ -28,7 +28,7 @@ export default function Contest({id,setPage}) {
                                             if (newName) { //makes sure the user entered something
                                                 let updatedNames = [...contest.names]
                                                 updatedNames[index] = {
-                                                    ...updatedNames,
+                                                    ...updatedNames[index],
                                                     name: newName,
                                                     id: nameId
                                                 }
