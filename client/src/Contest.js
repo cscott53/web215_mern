@@ -3,7 +3,7 @@ import Header from "./Header"
 export default function Contest({id,setPage}) {
     const [contest,setContest] = useState({}),
           input = useRef(),
-          host = window.location,
+          host = window.location.host,
           url = `${host.includes('localhost') ? 'http' : 'https'}://${host}/api/contest/${id}`
     useEffect(() => {
         fetch(url).then(res=>res.json()).then(setContest).catch(console.log)
