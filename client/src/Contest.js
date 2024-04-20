@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react"
 import Header from "./Header"
 export default function Contest({id,setPage}) {
     const [contest,setContest] = useState({}),
-          input = useRef()
+          input = useRef(),
+          host = window.location,
+          url = `${host.includes('localhost' ? 'http' : 'https')}://${host}/api/contest/${id}`
     useEffect(() => {
-        fetch(`https://${window.location.host}/api/contest/${id}`).then(res=>res.json()).then(setContest).catch(console.log)
+        fetch(url).then(res=>res.json()).then(setContest).catch(console.log)
     }, [id])
     setTimeout(()=>window.contest=contest,200)
     return (
@@ -32,7 +34,7 @@ export default function Contest({id,setPage}) {
                                                     name: newName,
                                                     id: nameId
                                                 }
-                                                fetch(`https://${window.location.host}/api/contest/${id}`,{
+                                                fetch(url,{
                                                     method: 'PUT',
                                                     headers: {
                                                         'Content-Type': 'application/json',
@@ -40,15 +42,27 @@ export default function Contest({id,setPage}) {
                                                     },
                                                     body: JSON.stringify({nameId,newName})
                                                 }).then(res=>{
-                                                    if (res.ok){
-                                                        console.log(JSON.stringify(contest,null,4))
-                                                        setContest(prevState=>({...prevState,names: updatedNames}))
-                                                        console.log(JSON.stringify(contest,null,4))
-                                                    } else console.error('Failed to update name')})
+                                                    if (res.ok) setContest(prevState=>({...prevState,names: updatedNames}))
+                                                    else console.error('Failed to update name')})
                                                 .catch(console.error)
                                             }
                                         }}>✏️</button>
-                                        <button className='delete' id={`delete-${nameId}_${index}`}>🗑️</button>
+                                        <button className='delete' id={`delete-${nameId}_${index}`} onClick={()=>{
+                                            if (confirm('Are you sure?')) {
+                                                let updatedNames = [...contest.names]
+                                                updatedNames.splice(index,1)
+                                                fetch(url,{
+                                                    method: 'DELETE',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        source: 'frontend'
+                                                    }
+                                                }).then(res=>{
+                                                    if (res.ok) setContest(prevState=>({...prevState, names: updatedNames}))
+                                                    else console.error('Failed to delete name')
+                                                }).catch(console.error)
+                                            }
+                                        }}>🗑️</button>
                                     </span>
                                 </>
                             ))}
@@ -62,7 +76,7 @@ export default function Contest({id,setPage}) {
                     <button id='submit' className='submit' onClick={e=>{
                         e.preventDefault()
                         let {value} = input.current
-                        fetch(`https://${window.location.host}/api/contest/${id}`,{
+                        fetch(url,{
                             method: 'POST',
                             headers: {
                                 'Content-Type':'application/json',
@@ -76,15 +90,12 @@ export default function Contest({id,setPage}) {
                                     updatedContest = {...contest}
                                 names.push({name:value})
                                 updatedContest.names = names
-                                // console.log(contest)
-                                // console.log(updatedContest)
                                 setContest(updatedContest)
                                 return text
                             } else {
                                 console.error('Network request error')
                             }
-                        })
-                        .then(()=>{}).catch(console.error)
+                        }).catch(console.error)
                     }}>Submit</button>
                 </form>
             </div>
