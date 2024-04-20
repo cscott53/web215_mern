@@ -57,7 +57,7 @@ export default function Contest({id,setPage,url}) {
                                                         'Content-Type': 'application/json',
                                                         source: 'frontend'
                                                     },
-                                                    body: {nameId}
+                                                    body: JSON.stringify({nameId})
                                                 }).then(res=>{
                                                     if (res.ok) setContest(prevState=>({...prevState, names: updatedNames}))
                                                     else console.error('Failed to delete name')
