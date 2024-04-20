@@ -6,6 +6,7 @@ export default function Contest({id,setPage}) {
           host = window.location.host,
           url = `${host.includes('localhost') ? 'http' : 'https'}://${host}/api/contest/${id}`
     useEffect(() => {
+        console.log(url)
         fetch(url).then(res=>res.json()).then(setContest).catch(console.log)
     }, [id])
     setTimeout(()=>window.contest=contest,200)
