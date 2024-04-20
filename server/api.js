@@ -65,11 +65,11 @@ router.put('/contest/:contestId',async({params,body},res)=>{
         res.status(500).send('Internal server error')
     }
 })
-router.delete('/contest/:contestid/:nameId',async({params},res)=>{
-    console.log('test')
+router.delete('/contest/:contestid',async({params,body},res)=>{
     try {
         let db = await connectClient(),
-            {contestId,nameId} = params,
+            {contestId} = params,
+            {nameId} = body,
             data = await db.collection('contests').findOneAndUpdate(
                 {id:contestId},
                 {$pull:{names:{id:nameId}}},
