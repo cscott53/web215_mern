@@ -10,9 +10,11 @@ function App() {
         [formSHowing,showForm] = useState(false),
         newName = useRef(),
         category = useRef(),
-        description = useRef()
+        description = useRef(),
+        host = window.location.host,
+        url = `${host.includes('localhost') ? 'http' : 'https'}://${host}/api/contests`
   useEffect(() => {
-    fetch(`https://${window.location.host}/api/contests`)
+    fetch(url)
     .then(res=>{
       if (!res.ok) throw new Error('An error occured with the response') //in case it couldn't fetch the data
       return res.json()
@@ -29,8 +31,6 @@ function App() {
       setId(state?.contestId)
     }
     document.body.style.minHeight = '100vh' //had to set it with js since setting it with css caused  a bug where it wouldnt set the style until i opened/closed the  js console
-  }, [])
-  useEffect(()=>{
     if (window.location.href.includes('contest/')) {
       let contest = window.location.href.split('contest/')[1]
       setTimeout(()=>document.getElementById(contest)?.click(), 100)

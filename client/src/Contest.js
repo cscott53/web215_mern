@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import Header from "./Header"
-export default function Contest({id,setPage}) {
+export default function Contest({id,setPage,url}) {
     const [contest,setContest] = useState({}),
-          input = useRef(),
-          host = window.location.host,
-          url = `${host.includes('localhost') ? 'http' : 'https'}://${host}/api/contest/${id}`
+          input = useRef()
     useEffect(() => {
         console.log(url)
         fetch(url).then(res=>res.json()).then(setContest).catch(console.log)
