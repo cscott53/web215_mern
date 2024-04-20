@@ -66,6 +66,7 @@ router.put('/contest/:contestId',async({params,body},res)=>{
     }
 })
 router.delete('/contest/:contestid/:nameId',async({params},res)=>{
+    console.log('test')
     try {
         let db = await connectClient(),
             {contestId,nameId} = params,
