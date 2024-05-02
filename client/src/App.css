@@ -21,15 +21,12 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 }
-footer .links {
-  width: 120px;
-}
 .links {
+  width: 120px;
   display: inline-block;
   border-radius: 5px;
   border: 1px solid #444;
   height: 20px;
-  width: 100px;
   background-color: #876;
 }
 .list {
