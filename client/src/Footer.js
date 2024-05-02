@@ -13,8 +13,8 @@ export default function Footer() {
       <em>MindMingle: Connect, create, collaborate</em>
       <br/>
       <p>Page built by Scripts Galore</p>
-      <a href={`https://validator.w3.org/check?uri=${location.href}`}><img src="/validate_html.png" className="validate" alt="Validate HTML"/></a>
-      <a href={`https://jigsaw.w3.org/css-validator/check/${location.href}`}><img src="/validate_css.png" className="validate" alt="Validate CSS"/></a>
+      <a href={`https://validator.w3.org/check?uri=${window.location.href}`}><img src="/validate_html.png" className="validate" alt="Validate HTML"/></a>
+      <a href={`https://jigsaw.w3.org/css-validator/check/${window.location.href}`}><img src="/validate_css.png" className="validate" alt="Validate CSS"/></a>
     </footer>
   )
 }

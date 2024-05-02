@@ -32,8 +32,27 @@ function App() {
     }
     document.body.style.minHeight = '100vh' //had to set it with js since setting it with css caused  a bug where it wouldnt set the style until i opened/closed the  js console
     if (window.location.href.includes('contest/')) {
-      let contest = window.location.href.split('contest/')[1]
+      let contest = window.location.href.split('contest/')[1].split('?')[0]
       setTimeout(()=>document.getElementById(contest)?.click(), 100)
+    }
+    if (window.location.href.includes('username=')) {
+      let username = window.location.href.split('username=')[1]
+      document.cookie = `loggedin=true; expires=${(date=>{
+        date.setDate(date.getDate()+7)
+        return date.toString()
+      })(new Date)}; path=/`
+      document.cookie = `username=${username}; expires=${(date=>{
+        date.setDate(date.getDate()+7)
+        return date.toString()
+      })(new Date)}; path=/`
+    }
+    if (document.cookie.includes('username=')) {
+      let data = document.cookie.split(';')
+      let username = data.find(e=>e.includes('username'))?.split('=')[1]
+      if (username) {
+        document.querySelectorAll('header .links a')
+        .forEach(a=>a.href+=`?username=${username}`)
+      }
     }
   },[])
   function pageContent(){

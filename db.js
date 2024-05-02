@@ -13,7 +13,7 @@ async function connectClient() {
     })
     await client.connect()
     await client.db(db_name).command({ping:1})
-    console.info('Connected to Mongo DB')
+    //console.info('Connected to Mongo DB')
     connectedClient = client
     return connectedClient.db(db_name)
 }
